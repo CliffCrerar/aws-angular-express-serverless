@@ -1,2 +1,5 @@
 {
+    "codedeploy.region": "eu-west-1",
+    "codedeploy.applicationName": "angular-deploy",
+    "codedeploy.isApplicationWorkspace": true
 }

@@ -1,13 +1,14 @@
 var express = require('express');
 var app = express();
 
-app.get('/api', (req, res) => {
-  app.use(express.static('./www'));
-  res.status(200).set('content-type','text/html')
-  require('fs').ReadStream('./www/index.html').pipe(res)
+app.get('/', (req, res) => {
+  console.log(req.path);
+  res.send({
+    "Output": "Hello World!"
+  });
 });
 
-app.post('/api', function(req, res) {
+app.post('/', function(req, res) {
   res.send({
     "Output": "Hello World!"
   });
