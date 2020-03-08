@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppNavBarComponent, AppHeaderComponent } from './app-temp-keep';
+import { LandingComponent } from './landing/landing.component';
+import { PropertyformComponent } from './propertyform/propertyform.component';
 
 @NgModule({
   declarations: [
 	AppComponent,
 	AppNavBarComponent,
-	AppHeaderComponent
+	AppHeaderComponent,
+	LandingComponent,
+	PropertyformComponent
   ],
   imports: [
     BrowserModule,

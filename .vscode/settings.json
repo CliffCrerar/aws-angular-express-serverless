@@ -1,4 +1,4 @@
-{
+{,
 	"html.format.wrapAttributes": "force-expand-multiline",
 	"editor.defaultFormatter": "EditorConfig.EditorConfig",
 	"html.format.indentInnerHtml": true,
