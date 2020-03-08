@@ -1,12 +1,12 @@
 {
-<<<<<<< HEAD
 	"html.format.wrapAttributes": "force-expand-multiline",
 	"editor.defaultFormatter": "EditorConfig.EditorConfig",
-	"html.format.indentInnerHtml": true
+	"html.format.indentInnerHtml": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	}
 }
-=======
-    "codedeploy.region": "eu-west-1",
-    "codedeploy.applicationName": "angular-deploy",
-    "codedeploy.isApplicationWorkspace": true
-}
->>>>>>> developer
+
+
+
+

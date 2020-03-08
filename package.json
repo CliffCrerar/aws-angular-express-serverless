@@ -2,17 +2,14 @@
   "name": "aws-angular-serverless-express",
   "description": "Hello World ExpressJS WebService",
   "private": true,
-  "main":"app.js",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:dev": "ng build --prod=false --watch=true",
     "build": "ng build",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
-<<<<<<< HEAD
-=======
-    "test:dev":"ng test",
->>>>>>> developer
+    "test:dev": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -26,7 +23,9 @@
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
     "aws-serverless-express": "3.1.3",
-    "express": "4.16.2",
+    "dotenv": "^8.2.0",
+    "express": "4.17.1",
+    "pg": "^7.18.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",

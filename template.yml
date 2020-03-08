@@ -36,18 +36,28 @@ Resources:
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
-        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - Arn
       Events:
         GetEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /api
             Method: get
         PostEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /api
             Method: post
+        PutEvent:
+          Type: Api
+          Properties:
+            Path: /api
+            Method: put
+        DeleteEvent:
+          Type: Api
+          Properties:
+            Path: /api
+            Method: delete
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
@@ -61,5 +71,5 @@ Resources:
           Action: sts:AssumeRole
       Path: /
       ManagedPolicyArns:
-        - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+      - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
       PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/CodeStar_${ProjectId}_PermissionsBoundary'
