@@ -2,11 +2,17 @@
   "name": "aws-angular-serverless-express",
   "description": "Hello World ExpressJS WebService",
   "private": true,
+  "main":"app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng build --prod=false --watch=true",
     "build": "ng build",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
+<<<<<<< HEAD
+=======
+    "test:dev":"ng test",
+>>>>>>> developer
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
