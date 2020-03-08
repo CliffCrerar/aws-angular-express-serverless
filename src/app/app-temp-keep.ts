@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 /**
  * Stuff from the creation template reorganised and reused
@@ -56,9 +56,9 @@ class AppNavBarComponent {
 	`
 })
 class AppHeaderComponent {
-	title = 'title'
+	title = 'title';
 }
-export {AppNavBarComponent,AppHeaderComponent}
+export {AppNavBarComponent, AppHeaderComponent};
 /*
 <style>
 

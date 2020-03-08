@@ -1,10 +1,19 @@
-{,
+{
 	"html.format.wrapAttributes": "force-expand-multiline",
 	"editor.defaultFormatter": "EditorConfig.EditorConfig",
 	"html.format.indentInnerHtml": true,
 	"[javascript]": {
 		"editor.defaultFormatter": "vscode.typescript-language-features"
-	}
+	},
+    "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.useTabStops": true,
+	"editor.wordWrap": "on",
+	"tslint.configFile": "./tslint.json",
+	"tslint.ignoreDefinitionFiles": false,
+	"tslint.jsEnable": true,
+	"tslint.suppressWhileTypeErrorsPresent": true
 }
 
 
