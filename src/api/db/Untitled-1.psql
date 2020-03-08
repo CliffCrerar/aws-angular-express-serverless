@@ -1,0 +1,61 @@
+
+DROP table if exists test;
+create table test(
+	testId serial primary key,
+	test varchar(12)
+);
+
+drop table if exists address;
+create table address(
+	addressid serial primary key,
+	unit smallint not null,
+	suite_street varchar(56) not null,
+	postal varchar(32) not null,
+	suburb varchar(128) not null,
+	city varchar(128) not null,
+	region varchar(128) not null,
+	country varchar(128) not null,
+	coordinate varchar(128) null,
+	created timestamp with time zone default CURRENT_TIMESTAMP
+);
+
+drop table if exists property;
+create table contact(
+	contactid serial primary key,
+	typeId int,
+	firstname varchar(24) not null,
+	lastname varchar(24) not null,
+	domicile int,
+	email varchar(128) not null,
+	tell varchar(32),
+	cell varchar(32),
+	created timestamp with time zone default CURRENT_TIMESTAMP
+);
+
+-- drop table if exists property;
+-- create table property (
+-- 	PropertyId serial primary key,
+-- 	titleDeedNo	varchar(12) null,
+-- 	ownerId	char(1),
+-- 	estateId char(1),
+-- 	addressId char(1),
+-- 	residentId char(1),
+-- 	propertyTypeId char(1),
+-- 	created timestamp with time zone default CURRENT_TIMESTAMP
+-- );
+
+-- CREATE OR REPLACE FUNCTION calctitledeed()
+-- RETURNS trigger
+-- LANGUAGE plpgsql
+-- SECURITY DEFINER
+-- AS $BODY$
+-- BEGIN
+
+-- END
+-- $BODY$;
+
+-- CREATE TRIGGER titledeed
+-- after INSERT
+-- ON property
+-- FOR EACH ROW
+-- EXECUTE PROCEDURE calctitledeed();
