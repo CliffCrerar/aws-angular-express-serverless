@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppNavBarComponent, AppHeaderComponent } from './app-temp-keep';
 import { LandingComponent } from './landing/landing.component';
 import { PropertyformComponent } from './propertyform/propertyform.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,14 @@ import { PropertyformComponent } from './propertyform/propertyform.component';
 	AppNavBarComponent,
 	AppHeaderComponent,
 	LandingComponent,
-	PropertyformComponent
+	PropertyformComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+	BrowserAnimationsModule,
+	MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
