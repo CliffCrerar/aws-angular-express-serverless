@@ -1,14 +1,13 @@
 {
   "extends": "tslint:recommended",
   "rules": {
-
-
-		"indent":[true, "tabs",1],
+	"indent":[true, "tabs"],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
       "severity": "warning"
-    },
+	},
+	"one-variable-per-declaration": false,
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -48,7 +47,7 @@
     ],
     "no-consecutive-blank-lines": false,
     "no-console": [
-      true,
+      false,
       "debug",
       "info",
       "time",
@@ -77,7 +76,7 @@
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
-    "no-input-rename": true,
+    "no-input-rename": false,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
     "no-output-on-prefix": true,
@@ -86,7 +85,7 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+	"use-pipe-transform-interface": true
   },
   "rulesDirectory": [
     "codelyzer"

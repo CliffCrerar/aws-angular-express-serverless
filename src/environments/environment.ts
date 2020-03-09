@@ -6,7 +6,7 @@ import {common} from './common';
 
 export const environment = {
 	common,
-  	production: false
+	production: false
 };
 
 /*

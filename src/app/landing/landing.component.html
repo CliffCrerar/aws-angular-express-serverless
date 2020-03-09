@@ -1,5 +1,52 @@
-<p>landing works!</p>
+<div class="landing-card">
+    <mat-card
+        [class.mat-elevation-z10]="!cardHover"
+        [class.mat-elevation-z20]="cardHover"
+    >
+        <mat-toolbar
+            color="primary"
+            class="text-center"
+        >
+            <mat-toolbar-row class="justify-content-center">GLOVENT APPLICATION DEMO</mat-toolbar-row>
+        </mat-toolbar>
 
-<div>
-	<mat-card></mat-card>
+        <mat-card-title-group class="mt-3">
+
+            <mat-card-title>Please Enter</mat-card-title>
+
+            <mat-card-subtitle>
+                In a standard application this is the login page
+            </mat-card-subtitle>
+        </mat-card-title-group>
+
+        <mat-card-actions class="text-center">
+            <mat-divider></mat-divider>
+            <button
+                color="primary"
+                mat-stroked-button
+				class="mt-3 mb-3"
+				[routerLink]="linkToHome"
+            >
+                Enter Demo
+            </button>
+            <mat-divider></mat-divider>
+        </mat-card-actions>
+
+        <mat-card-content>
+            <h3>About logins:</h3>
+            <h5 class="text-justify">
+                Conventionally it is good practice to use a JWT (Json Web Token) as the mechanism of client identification and authentication. This can be easily acheived by using Single Sign One. SSO is great because it allows a trusted third party to confirm authentication. The third parties can be google, facebook, microsoft. It is event possible to creat custom SSO credentials using cloud directory services like Azure Active Directory. All of the above mentioned providers use industry standard OAuth for authentication usually by the generation of JWT's. The final reason SSO is great is because it protects the proprioter of the application from any privacy issues that could arrise because no confidential info is shared by the third parties that provode the authentication means.
+            </h5>
+        </mat-card-content>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+            <h4 class="pt-3">Disclaimer:</h4>
+            <h6>This is a demo application that uses real cloud services, the information related to the content observable in this app is purely fictitious and is not subject to any privacy issues.
+
+			</h6>
+        </mat-card-content>
+
+    </mat-card>
 </div>

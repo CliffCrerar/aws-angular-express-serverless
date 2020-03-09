@@ -28,7 +28,7 @@ function handlePost(req, res) {
 // Retreive
 function handleGet(req, res) {
 	debug && logHeader(req.headers, excludeHeaderFromLog) // log headers if debug
-	runQuery(queryIndex.testQuery(), (err, result) => err
+	runQuery(queryIndex.callTable(req.query.table), (err, result) => err
 		? res.status(500).send(err) // response if err
 		: res.status(200).send(result) // response if ok
 	)

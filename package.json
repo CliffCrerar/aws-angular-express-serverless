@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --aot=true",
     "start:dev": "ng build --prod=false --watch=true",
     "build": "ng build",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
-    "test:dev": "ng test",
+	"test:dev": "ng test",
+	"dev":"concurrently \"npm start\" \"sam local start-api\"",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+	"e2e": "ng e2e",
+	"api":"sam local start-api"
   },
   "dependencies": {
     "@angular/animations": "~9.0.3",
@@ -25,6 +27,7 @@
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
     "aws-serverless-express": "3.1.3",
+    "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "4.17.1",
     "pg": "^7.18.2",

@@ -1,25 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingComponent } from './landing.component';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 describe('LandingComponent', () => {
-  let component: LandingComponent;
-  let fixture: ComponentFixture<LandingComponent>;
+	let component: LandingComponent;
+	let fixture: ComponentFixture<LandingComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LandingComponent ]
-    })
-    .compileComponents();
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [MatCardModule],
+			declarations: [LandingComponent]
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LandingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		})
+			.compileComponents();
+	}));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(LandingComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
+
+	xit('should contain mat-card', () => {
+		expect(component).toContain('mat-card');
+	});
 });

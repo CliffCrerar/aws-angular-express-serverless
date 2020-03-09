@@ -6,16 +6,20 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'app';
-}
 
+	public title: string;
+	constructor(){
+
+		this.title = 'app';
+	}
+}
 
 if (typeof Worker !== 'undefined') {
 	// Create a new
 	const worker = new Worker('./app.worker', { type: 'module' });
 	worker.onmessage = ({ data }) => {
-	console.log(`page got message: ${data}`);
-};
+		console.log(`page got message: ${data}`);
+	};
 	worker.postMessage('hello');
 } else {
 	// Web Workers are not supported in this environment.

@@ -3,5 +3,10 @@
 @import url('./assets/rad-css/rad.css');
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+	height: 100vh;
+ }
+
+ button{outline: 0 !important;}
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
