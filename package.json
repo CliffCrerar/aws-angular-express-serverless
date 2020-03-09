@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot=true",
+    "start": "ng serve --aot=true --proxyConfig=src/proxy.conf.js --hmr=true --prod=false --verbose=false",
     "start:dev": "ng build --prod=false --watch=true",
     "build": "ng build",
     "test": "ng test --watch=false --browsers=ChromeHeadless",

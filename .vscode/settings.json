@@ -10,7 +10,11 @@
 	"tslint.configFile": "./tslint.json",
 	"tslint.ignoreDefinitionFiles": false,
 	"tslint.jsEnable": false,
-	"tslint.suppressWhileTypeErrorsPresent": true
+	"tslint.suppressWhileTypeErrorsPresent": true,
+	"cSpell.words": [
+		"hdrs",
+		"propertyform"
+	]
 }
 
 

@@ -8,5 +8,12 @@ html, body {
 	height: 100vh;
  }
 
+ main{
+	 min-height: 100vh;
+	 height: auto;
+ }
+
+
+
  button{outline: 0 !important;}
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -12,7 +12,6 @@ const
 	excludeHeaderFromLog = ['x-apigateway-event', 'x-apigateway-context'],
 	{ pgPool, queryIndex } = require('./db');
 
-
 app.set('Accept', 'application/json'); // set global header
 
 app.route('/api') // api entry point
@@ -25,7 +24,7 @@ app.route('/api') // api entry point
 function handlePost(req, res) {
 	res.status(501).send(new Error('Not Implemented'));
 }
-// Retreive
+// Retrieve
 function handleGet(req, res) {
 	debug && logHeader(req.headers, excludeHeaderFromLog) // log headers if debug
 	runQuery(queryIndex.callTable(req.query.table), (err, result) => err

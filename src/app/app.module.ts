@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,6 +16,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './_service/data.service';
+import { LoadingbarComponent } from './loadingbar/loadingbar.component';
+
 
 @NgModule({
 	declarations: [
@@ -23,10 +29,13 @@ import { MatButtonModule } from '@angular/material/button';
 		AppHeaderComponent,
 		LandingComponent,
 		PropertyformComponent,
-		HomeComponent
+		HomeComponent,
+		LoadingbarComponent,
+
 	],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		MatCardModule,
@@ -35,9 +44,10 @@ import { MatButtonModule } from '@angular/material/button';
 		MatListModule,
 		MatIconModule,
 		MatDividerModule,
-		MatButtonModule
+		MatButtonModule,
+		MatProgressBarModule
 	],
-	providers: [],
+	providers: [ DataService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

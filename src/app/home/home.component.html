@@ -1,46 +1,52 @@
-<app-navbar [navBarTitle]="appNavTitle"></app-navbar>
+<main class="d-flex flex-column">
+    <nav id="main-nav">
+        <app-navbar [navBarTitle]="appNavTitle"></app-navbar>
+    </nav>
 
-<mat-sidenav-container
-    class="mat-drawer-container"
-    autosize
->
-    <mat-sidenav
-        opened
-		mode="side"
+    <mat-sidenav-container class="mat-drawer-container">
+        <mat-sidenav
+            opened
+			mode="side"
+        >
+            <div class="p-2">
+                <mat-toolbar>
+                    <mat-toolbar-row>
+                        <p>Auto-resizing sidenav</p>
 
-    >
-        <div class="p-2">
-            <mat-toolbar>
-                <mat-toolbar-row>
-                    <p>Auto-resizing sidenav</p>
+                    </mat-toolbar-row>
+                </mat-toolbar>
 
-                </mat-toolbar-row>
-			</mat-toolbar>
+                <mat-list>
+                    <h3 mat-subheader>Folders</h3>
+                    <mat-list-item>
+                        <mat-icon mat-list-icon>folder</mat-icon>
+                        <h4 mat-line>hd1</h4>
+                        <p mat-line>sh</p>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <h3 mat-subheader>Notes</h3>
+                    <mat-list-item>
+                        <mat-icon mat-list-icon>note</mat-icon>
+                        <h4 mat-line>More</h4>
+                        <p mat-line>More</p>
+                    </mat-list-item>
+                </mat-list>
+            </div>
 
-			<mat-list>
-				<h3 mat-subheader>Folders</h3>
-				<mat-list-item >
-				  <mat-icon mat-list-icon>folder</mat-icon>
-				  <h4 mat-line>hd1</h4>
-				  <p mat-line> sh </p>
-				</mat-list-item>
-				<mat-divider></mat-divider>
-				<h3 mat-subheader>Notes</h3>
-				<mat-list-item >
-				  <mat-icon mat-list-icon>note</mat-icon>
-				  <h4 mat-line>More</h4>
-				  <p mat-line> More</p>
-				</mat-list-item>
-			  </mat-list>
-        </div>
+        </mat-sidenav>
 
-    </mat-sidenav>
-    <mat-sidenav-content>
+        <mat-sidenav-content class="d-flex p-3 flex-column side-nav-content">
 
-        <main class="p-3">
+			<section>
 
-        </main>
+                    <router-outlet>
+                        <h1 class="mat-headline">Please wait</h1>
+                        <p class="mat-body-1">Loading data . . .</p>
+                    </router-outlet>
 
-    </mat-sidenav-content>
+			</section>
 
-</mat-sidenav-container>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</main>
