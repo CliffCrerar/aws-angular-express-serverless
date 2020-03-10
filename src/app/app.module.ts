@@ -20,6 +20,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './_service/data.service';
 import { LoadingbarComponent } from './loadingbar/loadingbar.component';
+import { SiteNavContentComponent } from './site-nav-content/site-nav-content.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { LoadingbarComponent } from './loadingbar/loadingbar.component';
 		PropertyformComponent,
 		HomeComponent,
 		LoadingbarComponent,
+		SiteNavContentComponent,
 
 	],
 	imports: [

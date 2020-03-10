@@ -12,15 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingbarComponent implements OnInit {
 	public mode: string;
-	public show: boolean;
+	public show = false;
 	constructor(private service: LoadingBarService) {
 		this.mode = 'indeterminate';
-		this.show = false;
 	}
 
 	ngOnInit(): void {
-		this.service.loadingBarState.subscribe(state => {
-			console.log('state: ', state);
-		});
+		this.service.loadingBarState.subscribe(state => { this.show = state; });
 	}
 }

@@ -1,3 +1,4 @@
+import { LoadingBarService } from './loadingbar/loadingbar.service';
 import { Address } from './_models/properties.model';
 import { HttpClient } from '@angular/common/http';
 import { GetRequestModel } from './_models/http.model';
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	/* CONSTRUCTOR */
 	constructor(
 		private dataService: DataService,
-		private http: HttpClient
+		private http: HttpClient,
+		private loadingBar: LoadingBarService
 	) {
 		this.requestObject = new GetRequestModel('table', 'address');
 		this.promiseArray = [];
@@ -30,31 +32,25 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-
 		// Bring the SQL data into the a service;
-		this.dataServiceSubscription = this.dataService.waitToStartGettingData
+		this.dataServiceSubscription = this.dataService.waitForData
 			.subscribe((startLoading: boolean): void => {
+				console.log('startLoading: ', startLoading);
+				this.loadingBar.switchLoadingBar = startLoading;
 				if (startLoading) {
-					this.emitTables = from(this.dataService.tableList).subscribe((table: string) => {
-						const httpGetPromise = this.http.get(`./api?table=${table}`).toPromise();
-						this.promiseArray.push(httpGetPromise);
-						if (this.promiseArray.length === this.dataService.tableList.length) {
-							Promise.all(this.promiseArray).then(res => console.log(res));
-						}
+					this.dataService.loadProperties().subscribe(propertiesView => {
+						this.dataService.properties = propertiesView.rows;
+						this.dataService.propertiesFields = propertiesView.fields;
 					});
 				}
-			});
-	}
-
-	@HostListener('window:')
-	getDataAgain(){
-		console.log('get data again');
+			}
+		);
 	}
 
 
 	ngOnDestroy() {
 		this.dataServiceSubscription.unsubscribe();
-		this.emitTables.unsubscribe();
+		// this.emitTables.unsubscribe();
 	}
 }
 

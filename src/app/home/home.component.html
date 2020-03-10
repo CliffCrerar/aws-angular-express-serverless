@@ -1,50 +1,28 @@
 <main class="d-flex flex-column">
     <nav id="main-nav">
         <app-navbar [navBarTitle]="appNavTitle"></app-navbar>
+        <app-loadingbar></app-loadingbar>
     </nav>
 
     <mat-sidenav-container class="mat-drawer-container">
         <mat-sidenav
             opened
-			mode="side"
+            mode="side"
         >
-            <div class="p-2">
-                <mat-toolbar>
-                    <mat-toolbar-row>
-                        <p>Auto-resizing sidenav</p>
-
-                    </mat-toolbar-row>
-                </mat-toolbar>
-
-                <mat-list>
-                    <h3 mat-subheader>Folders</h3>
-                    <mat-list-item>
-                        <mat-icon mat-list-icon>folder</mat-icon>
-                        <h4 mat-line>hd1</h4>
-                        <p mat-line>sh</p>
-                    </mat-list-item>
-                    <mat-divider></mat-divider>
-                    <h3 mat-subheader>Notes</h3>
-                    <mat-list-item>
-                        <mat-icon mat-list-icon>note</mat-icon>
-                        <h4 mat-line>More</h4>
-                        <p mat-line>More</p>
-                    </mat-list-item>
-                </mat-list>
-            </div>
+            <app-site-nav-content></app-site-nav-content>
 
         </mat-sidenav>
 
         <mat-sidenav-content class="d-flex p-3 flex-column side-nav-content">
 
-			<section>
+            <section>
 
-                    <router-outlet>
-                        <h1 class="mat-headline">Please wait</h1>
-                        <p class="mat-body-1">Loading data . . .</p>
-                    </router-outlet>
+                <router-outlet>
+                    <h1 class="mat-headline">Please wait</h1>
+                    <p class="mat-body-1">Loading data . . .</p>
+                </router-outlet>
 
-			</section>
+            </section>
 
         </mat-sidenav-content>
 

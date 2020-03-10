@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
 	selector: '<app-navbar></app-navbar>',
 	template: `
-	<mat-toolbar color="primary" [class.mat-elevation-z2]="true">
-	<div class="toolbar d-flex align-items-center" role="banner">
+	<mat-toolbar style="position: relative; z-index: 100" color="primary" [class.mat-elevation-z10]="true">
+	<div class="toolbar d-flex align-items-center" role="banner" >
 		<img
 			width="40"
 			alt="Angular Logo"

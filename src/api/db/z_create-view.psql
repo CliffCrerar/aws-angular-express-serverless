@@ -1,6 +1,6 @@
 
-
-create view vProperties as
+drop view if exists vProperties;
+create or replace view vProperties as
 select
 
 propertyid,
@@ -17,11 +17,12 @@ d.country,
 d.coordinate,
 a.propertytypeid,
 f.propertytype,
-b.contactid,
+b.contactid as ownerid,
 concat(b.firstname,' ',b.lastname) as owner,
 b.email as owner_email,
 b.tell as owner_tell,
 b.cell as owner_cell,
+e.contactid as residentid,
 concat(e.firstname,' ',e.lastname) as resident,
 e.email as resident_email,
 e.tell as resident_tell,

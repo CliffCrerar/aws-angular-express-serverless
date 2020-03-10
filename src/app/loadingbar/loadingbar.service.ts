@@ -5,17 +5,18 @@ import { Subject } from 'rxjs';
 	providedIn: 'root'
 })
 export class LoadingBarService {
-	private _loadingBarSubject: Subject<string>;
-
+	private _loadingBarSubject: Subject<boolean>;
+	private _state = false;
 	constructor() {
-		this._loadingBarSubject = new Subject<string>();
+		this._loadingBarSubject = new Subject<boolean>();
+		this._loadingBarSubject.next(this._state);
 	}
 
-	set switchLoadingBar(toState: string) {
+	set switchLoadingBar(toState: boolean) {
 		this._loadingBarSubject.next(toState);
 	}
 
-	get loadingBarState(): Subject<string> {
+	get loadingBarState(): Subject<boolean> {
 		return this._loadingBarSubject;
 	}
 }
