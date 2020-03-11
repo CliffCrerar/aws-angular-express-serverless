@@ -3,7 +3,7 @@
  */
 
 
-export class Properties {
+export class PropertiesList {
 	constructor(
 		public propertyid?: number,
 		public estateid?: number,
@@ -32,7 +32,7 @@ export class Properties {
 	) { }
 }
 
-export class Property {
+export class PropertyListing {
 	constructor(
 		public propertyid: number,
 		public titledeedno: string,

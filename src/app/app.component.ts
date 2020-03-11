@@ -1,56 +1,25 @@
-import { LoadingBarService } from './loadingbar/loadingbar.service';
-import { Address } from './_models/properties.model';
+import { LoadingBarService } from './_service/loadingbar.service';
 import { HttpClient } from '@angular/common/http';
 import { GetRequestModel } from './_models/http.model';
 
 import { DataService } from './_service/data.service';
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { Subscription, from, Observer, OperatorFunction, Observable, Operator } from 'rxjs';
+import { Subscription} from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
 	/* ATTRIBUTES */
-	requestObject: GetRequestModel;
-	dataServiceSubscription: Subscription;
-	emitTables: Subscription;
-	tableLoadCount = 0;
-	promiseArray: Promise<any>[];
-	httpClient: HttpClient;
 	/* CONSTRUCTOR */
 	constructor(
 		private dataService: DataService,
-		private http: HttpClient,
-		private loadingBar: LoadingBarService
 	) {
-		this.requestObject = new GetRequestModel('table', 'address');
-		this.promiseArray = [];
-		this.httpClient = this.http;
-	}
+		// this.requestObject = new GetRequestModel('table', 'address');
 
-	ngOnInit() {
-		// Bring the SQL data into the a service;
-		this.dataServiceSubscription = this.dataService.waitForData
-			.subscribe((startLoading: boolean): void => {
-				console.log('startLoading: ', startLoading);
-				this.loadingBar.switchLoadingBar = startLoading;
-				if (startLoading) {
-					this.dataService.loadProperties().subscribe(propertiesView => {
-						this.dataService.properties = propertiesView.rows;
-						this.dataService.propertiesFields = propertiesView.fields;
-					});
-				}
-			}
-		);
-	}
-
-
-	ngOnDestroy() {
-		this.dataServiceSubscription.unsubscribe();
-		// this.emitTables.unsubscribe();
 	}
 }
 

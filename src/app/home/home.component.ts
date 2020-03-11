@@ -1,3 +1,5 @@
+
+import { LoadingBarService } from 'src/app/_service/loadingbar.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 	public appNavTitle: string;
-	constructor() {
+	public loading = true;
+	constructor(private loadingService: LoadingBarService) {
 		this.appNavTitle = 'GloVent Application Demo';
+		this.loadingService.loadingBarState.subscribe((newLoadingSate: boolean) => {
+			this.loading = newLoadingSate;
+		});
 	}
+
 
 	ngOnInit(): void {
 	}

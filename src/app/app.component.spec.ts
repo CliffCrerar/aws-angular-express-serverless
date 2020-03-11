@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { AppNavBarComponent } from './app-temp-keep';
+import { AppNavBarComponent } from './home/app-temp-keep';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {

@@ -1,7 +1,7 @@
 <main class="d-flex flex-column">
     <nav id="main-nav">
         <app-navbar [navBarTitle]="appNavTitle"></app-navbar>
-        <app-loadingbar></app-loadingbar>
+        <app-loadingbar *ngIf="loading"></app-loadingbar>
     </nav>
 
     <mat-sidenav-container class="mat-drawer-container">
@@ -9,7 +9,7 @@
             opened
             mode="side"
         >
-            <app-site-nav-content></app-site-nav-content>
+            <app-side-nav-content></app-side-nav-content>
 
         </mat-sidenav>
 
@@ -17,10 +17,7 @@
 
             <section>
 
-                <router-outlet>
-                    <h1 class="mat-headline">Please wait</h1>
-                    <p class="mat-body-1">Loading data . . .</p>
-                </router-outlet>
+                <router-outlet></router-outlet>
 
             </section>
 

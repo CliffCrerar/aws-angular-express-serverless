@@ -43,6 +43,7 @@ Resources:
           Properties:
             Path: /api
             Method: get
+            Timeout: 10
         PostEvent:
           Type: Api
           Properties:

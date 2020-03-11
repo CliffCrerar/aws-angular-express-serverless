@@ -34,8 +34,4 @@ export class LandingComponent implements OnInit, AfterViewInit {
 	get dataService() {
 		return this._dataService; // for testing
 	}
-
-	onEnterClick() {
-		this.dataService.startLoadingData(true);
-	}
 }
