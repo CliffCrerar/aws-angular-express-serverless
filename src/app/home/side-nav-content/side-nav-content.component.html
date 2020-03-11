@@ -2,24 +2,34 @@
     <mat-toolbar>
         <mat-toolbar-row>
             <p>Auto-resizing sidenav</p>
-
         </mat-toolbar-row>
     </mat-toolbar>
 
     <mat-selection-list
-        multiple="false"
+		multiple="false"
+
         (selectionChange)="onUserSelection($event)"
     >
         <mat-list-option
             id="table"
             *ngFor="let table of tableList; let i = index"
         >
-            <div>
-                <span>
-                    <mat-icon [innerText]="icons[i]"></mat-icon>
-                    {{tableNames[i]}}
-                </span>
+            <div class="d-flex flex-row align-items-center">
+                <mat-icon [innerText]="icons[i]"></mat-icon>
+                <span class="ml-2">{{tableNames[i]}}</span>
             </div>
-        </mat-list-option>
+		</mat-list-option>
+
+
+		<mat-divider></mat-divider>
+
+		<mat-list-option hidden class="mt-1">
+
+			<div class="d-flex flex-row align-items-center">
+				<mat-icon [innerText]="'edit'"></mat-icon>
+				<span class="ml-2">Edit Form</span>
+			</div>
+
+		</mat-list-option>
     </mat-selection-list>
 </div>

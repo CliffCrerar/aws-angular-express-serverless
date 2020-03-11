@@ -11,13 +11,12 @@ import { MatListOption } from '@angular/material/list';
 })
 export class SideNavContentComponent implements OnInit {
 
-	tableList: string[];
-
-	tableNames: string[] = ['Properties', 'Contacts', 'Address list', 'Estates', 'Property Types',''];
-	icons: string[] = ['stars', 'assignment_ind', 'contact_mail', 'account_balance', 'store',''];
+	public tableList: string[];
+	public tableNames: string[] = ['Properties', 'Contacts', 'Address list', 'Estates', 'Property Types'];
+	public icons: string[] = ['stars', 'assignment_ind', 'contact_mail', 'account_balance', 'store'];
 
 	constructor(private dataService: DataService) {
-		this.tableList = this.dataService.tableList;
+		this.tableList = this.dataService.tableList.slice(0,this.tableNames.length);
 	}
 
 	ngOnInit(): void { }

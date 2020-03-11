@@ -11,7 +11,6 @@ const routes: Routes = [
 			{ path: 'properties', component: PropertiesViewComponent, data: { title: 'Properties View' } }
 		]
 	}
-
 ];
 
 @NgModule({

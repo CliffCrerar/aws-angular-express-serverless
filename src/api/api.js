@@ -27,7 +27,11 @@ function handlePost(req, res) {
 // Retrieve
 function handleGet(req, res) {
 	debug && logHeader(req.headers, excludeHeaderFromLog) // log headers if debug
-	runQuery(queryIndex.callTable(req.query.table), (err, result) => err
+	debug && console.log(req.query) // log headers if debug
+
+	const limitDefined = typeof req.query.limit !== undefined;
+
+	runQuery(queryIndex.callTable(req.query.table, limitDefined, limitDefined && req.query.limit), (err, result) => err
 		? res.status(500).send(err) // response if err
 		: res.status(200).send(result) // response if ok
 	)

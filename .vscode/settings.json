@@ -12,8 +12,14 @@
 	"tslint.jsEnable": false,
 	"tslint.suppressWhileTypeErrorsPresent": true,
 	"cSpell.words": [
+		"addressid",
+		"estateid",
 		"hdrs",
-		"propertyform"
+		"ownerid",
+		"propertyform",
+		"propertyid",
+		"propertytypeid",
+		"residentid"
 	]
 }
 

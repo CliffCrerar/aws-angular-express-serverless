@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatAccordian} from '@angular/material/expansion/accordion'
+// import {MatAccordian} from '@angular/material/expansion/accordion'
 
 
 @NgModule({
@@ -23,8 +23,8 @@ import {MatAccordian} from '@angular/material/expansion/accordion'
 		MatButtonModule,
 		MatProgressBarModule,
 		MatExpansionModule,
-		MatIconModule,
-		MatAccordian
+		MatIconModule
+		// MatAccordian
 	]
 })
 export class MaterialAppModule { }

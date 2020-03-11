@@ -9,7 +9,6 @@ export class LoadingBarService {
 
 	constructor() {
 		this._loadingBarSubject = new Subject<boolean>();
-		// this._loadingBarSubject.next(this._state);
 	}
 
 	set switchLoadingBar(toState: string) {
@@ -17,7 +16,6 @@ export class LoadingBarService {
 			case 'off': this._loadingBarSubject.next(false); break;
 			case 'on': this._loadingBarSubject.next(true); break;
 		}
-
 	}
 
 	get loadingBarState(): Subject<boolean> {

@@ -1,17 +1,113 @@
-<p>properties-view works!</p>
-<!-- <span>{{JSON.stringify(propertiesList)}}</span> -->
 <div>
-    <div *ngFor="let thisRow of propertiesList">{{ thisRow|testpipe}}</div>
+    <!-- <div *ngFor="let thisRow of propertiesList">{{ thisRow| consolelog }}</div> -->
 </div>
 
-<mat-accordian>
-    <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-    >
-        <mat-expansion-panel-header>
+<mat-card class="border-radius-0 mb-1">
+    <mat-list>
 
-        </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-</mat-accordian>
+        <mat-list-item role="listitem">
+            <mat-card-title>Properties</mat-card-title>
+        </mat-list-item>
+
+        <!-- <mat-list-item role="listitem"> -->
+        <!-- <mat-divider></mat-divider> -->
+        <!-- </mat-list-item> -->
+
+        <mat-list-item
+            role="listitem"
+            class="table-heading"
+        >
+            <div class="line-grid">
+                <div *ngFor="let heading of headers">{{heading}}</div>
+            </div>
+        </mat-list-item>
+
+    </mat-list>
+
+    <mat-accordion>
+
+        <ng-container *ngFor="let row of propertiesList">
+            <mat-expansion-panel
+                [id]="row.propertyid"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+                (click)="onExpanderClick(row.propertyid)"
+            >
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <div class="line-grid">
+                            <div>{{row.unit}}</div>
+                            <div>{{row.estatename}}</div>
+                            <div>{{row.propertytype}}</div>
+                            <div>{{row.suite_street}}</div>
+                            <div>{{row.suburb}}</div>
+                            <div>{{row.city}}</div>
+                        </div>
+                    </mat-panel-description>
+
+                </mat-expansion-panel-header>
+
+                <div class="position-relative d-block">
+                    <mat-divider></mat-divider>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-start">
+
+                    <div>
+
+                        <mat-list>
+                            <h3 mat-subheader>Property</h3>
+                            <mat-list-item *ngFor="let field of currentProperty.estate">
+                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
+                                <h4 mat-line>{{field.title}}</h4>
+                                <p mat-line>{{field.value}}</p>
+                            </mat-list-item>
+
+
+
+                            <mat-list-item *ngFor="let field of currentProperty.address">
+                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
+                                <h4 mat-line>{{field.title}}</h4>
+                                <p mat-line>{{field.value}}</p>
+                            </mat-list-item>
+
+
+                            <mat-list-item *ngFor="let field of currentProperty.propertyType">
+                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
+                                <h4 mat-line>{{field.title}}</h4>
+                                <p mat-line>{{field.value}}</p>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <div>
+                        <mat-list>
+                            <h3 mat-subheader>Owner</h3>
+
+                            <mat-list-item id="estate">
+                                <h4 mat-line>TEMP</h4>
+                                <p mat-line>TEMP</p>
+                            </mat-list-item>
+
+                        </mat-list>
+                    </div>
+
+                    <div>
+                        <mat-list>
+                            <h3 mat-subheader>Resident</h3>
+                            <mat-list-item>
+                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
+                                <h4 mat-line>TEMP</h4>
+                                <p mat-line>TEMP</p>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                </div>
+
+            </mat-expansion-panel>
+        </ng-container>
+
+    </mat-accordion>
+
+</mat-card>
