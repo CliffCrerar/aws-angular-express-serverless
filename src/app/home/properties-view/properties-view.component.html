@@ -54,28 +54,35 @@
                 <div class="d-flex justify-content-between align-items-start">
 
                     <div>
-
                         <mat-list>
-                            <h3 mat-subheader>Property</h3>
-                            <mat-list-item *ngFor="let field of currentProperty.estate">
-                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
-                                <h4 mat-line>{{field.title}}</h4>
-                                <p mat-line>{{field.value}}</p>
+                            <h3 mat-subheader>
+                                <mat-icon mat-list-icon>note</mat-icon>
+                                Property
+                            </h3>
+
+                            <mat-list-item
+                                class="d-flex"
+                                *ngFor="let field of currentProperty.estate"
+                            >
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
                             </mat-list-item>
-
-
-
-                            <mat-list-item *ngFor="let field of currentProperty.address">
-                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
-                                <h4 mat-line>{{field.title}}</h4>
-                                <p mat-line>{{field.value}}</p>
-                            </mat-list-item>
-
 
                             <mat-list-item *ngFor="let field of currentProperty.propertyType">
-                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
-                                <h4 mat-line>{{field.title}}</h4>
-                                <p mat-line>{{field.value}}</p>
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
+                            </mat-list-item>
+
+                            <mat-list-item *ngFor="let field of currentProperty.address">
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
+                            </mat-list-item>
+
+                        </mat-list>
+                    </div>
+
+                    <div>
+                        <mat-list>
+                            <h3 mat-subheader>Address</h3>
+                            <mat-list-item *ngFor="let field of currentProperty.address">
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
                             </mat-list-item>
                         </mat-list>
                     </div>
@@ -83,27 +90,25 @@
                     <div>
                         <mat-list>
                             <h3 mat-subheader>Owner</h3>
-
-                            <mat-list-item id="estate">
-                                <h4 mat-line>TEMP</h4>
-                                <p mat-line>TEMP</p>
+                            <mat-list-item *ngFor="let field of currentProperty.owner">
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
                             </mat-list-item>
-
                         </mat-list>
                     </div>
 
                     <div>
                         <mat-list>
                             <h3 mat-subheader>Resident</h3>
-                            <mat-list-item>
-                                <!-- <mat-icon mat-list-icon>note</mat-icon> -->
-                                <h4 mat-line>TEMP</h4>
-                                <p mat-line>TEMP</p>
+                            <mat-list-item *ngFor="let field of currentProperty.resident">
+                                <p mat-line>{{field.title}}: {{field.value}}</p>
                             </mat-list-item>
                         </mat-list>
                     </div>
 
-                </div>
+				</div>
+				<mat-card-actions class="text-right">
+					<button [routerLink]="['/home','edit-properties','property#'+row.propertyid]" mat-raised-button color="accent"><mat-icon>edit</mat-icon>EDIT</button>
+				</mat-card-actions>
 
             </mat-expansion-panel>
         </ng-container>

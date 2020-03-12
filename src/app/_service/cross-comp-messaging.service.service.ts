@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class CrossComponentMessagingService {
 
-	constructor() { }
+	public activateEditSubject: Subject<boolean>;
+
+	constructor() {
+		this.activateEditSubject = new Subject<boolean>();
+	}
 }

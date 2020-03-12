@@ -52,7 +52,9 @@ export class PropertyDisplayModel {
 			case 'postal': return 'Postal / Zip Code';
 			case 'suburb': return 'Suburb';
 			case 'region': return 'Region';
+			case 'city': return 'City';
 			case 'country': return 'Country';
+			case 'suite_street': return 'Street';
 			case 'propertytype': return 'Type of Property';
 			case 'owner': return 'Owner';
 			case 'owner_email': return 'e-mail';
@@ -62,6 +64,7 @@ export class PropertyDisplayModel {
 			case 'resident_email': return 'e-mail';
 			case 'resident_tell': return 'Tell';
 			case 'resident_cell': return 'Cell';
+			case 'coordinate': return 'GEO Location'
 		}
 	}
 }

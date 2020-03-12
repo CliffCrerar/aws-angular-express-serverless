@@ -11,6 +11,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PropertiesViewComponent } from 'src/app/home/properties-view/properties-view.component';
 import { LoadingbarComponent } from './loadingbar/loadingbar.component';
+import { AddEditPropertiesComponent } from './add-edit-properties/add-edit-properties.component';
+import { ContactsViewComponent } from './contacts-view/contacts-view.component';
+import { PropertyTypesComponent } from './property-types/property-types.component';
+import { AddressListComponent } from './address-list/address-list.component';
 
 
 @NgModule({
@@ -22,6 +26,10 @@ import { LoadingbarComponent } from './loadingbar/loadingbar.component';
 		AppNavBarComponent,
 		LoadingbarComponent,
 		ConsoleLogPipe,
+		AddEditPropertiesComponent,
+		ContactsViewComponent,
+		PropertyTypesComponent,
+		AddressListComponent,
 	],
 	imports: [
 		BrowserAnimationsModule,

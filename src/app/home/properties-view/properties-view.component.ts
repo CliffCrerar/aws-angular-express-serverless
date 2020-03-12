@@ -23,7 +23,7 @@ export class PropertiesViewComponent implements OnInit, OnDestroy {
 		this.propertiesList = [];
 	}
 	ngOnInit(): void {
-		this.dataService.loadProperties(10).subscribe(({ rows, fields }: any) => {
+		this._dataServiceSubscription = this.dataService.loadProperties(10).subscribe(({ rows, fields }: any) => {
 			this.propertiesList = rows.map((row: PropertiesList) => new PropertiesList(...Object.values(row)));
 			this.dataService.propertiesFields = fields.map((field: PostgreSQLFieldDescription) => new PostgreSQLFieldDescription(...Object.values(field)));
 			this.loadingService.switchLoadingBar = 'off';
@@ -35,8 +35,8 @@ export class PropertiesViewComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this._dataServiceSubscription.unsubscribe();
 	}
-	onExpanderClick(id: string) {
-		this.currentProperty = new PropertyDisplayModel(this.propertiesList.filter(propertyEntry => propertyEntry.propertyid)[0]);
+	onExpanderClick(id: number) {
+		this.currentProperty = new PropertyDisplayModel(this.propertiesList.filter(propertyEntry => propertyEntry.propertyid === id)[0]);
 		console.log('this.currentProperty: ', this.currentProperty);
 
 	}

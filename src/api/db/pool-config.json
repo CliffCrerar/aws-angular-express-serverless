@@ -1,5 +1,0 @@
-{
-    "connectionTimeoutMillis": 30000,
-    "idleTimeoutMillis": 10000,
-    "max": 10
-}
