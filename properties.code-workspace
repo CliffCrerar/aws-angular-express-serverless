@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/Users/cliff/git/fu-loadshedding"
+		}
+	],
+	"settings": {
+		"tslint.configFile": "./tslint.json",
+		"tslint.ignoreDefinitionFiles": false,
+		"tslint.jsEnable": false,
+		"tslint.suppressWhileTypeErrorsPresent": true
+	}
+}

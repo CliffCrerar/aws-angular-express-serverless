@@ -2,7 +2,7 @@
  * The values of the current property being viewed, edited, added
  */
 
-import { PropertiesList } from './properties.model';
+import { PropertiesEntry } from './properties.model';
 
 interface FieldDescription {
 	key: string;
@@ -23,7 +23,7 @@ export class PropertyDisplayModel {
 	public owner: FieldDescription[];
 	public resident: FieldDescription[];
 
-	constructor(propertyEntry?: PropertiesList) {
+	constructor(propertyEntry?: PropertiesEntry) {
 		const kvArr = Object.entries(propertyEntry);
 		this.__propertyid = propertyEntry.propertyid;
 		this._estateid = propertyEntry.estateid;

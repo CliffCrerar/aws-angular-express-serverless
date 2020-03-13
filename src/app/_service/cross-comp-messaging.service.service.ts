@@ -8,7 +8,9 @@ export class CrossComponentMessagingService {
 
 	public activateEditSubject: Subject<boolean>;
 
+
 	constructor() {
 		this.activateEditSubject = new Subject<boolean>();
+
 	}
 }

@@ -1,7 +1,9 @@
 <main class="d-flex flex-column">
     <nav id="main-nav">
-        <app-navbar [navBarTitle]="appNavTitle"></app-navbar>
-        <app-loadingbar *ngIf="loading"></app-loadingbar>
+
+        <app-main-navbar [appSectionTitle]="appSectionTitle" [navBarTitle]="appNavTitle"></app-main-navbar>
+
+		<app-loadingbar *ngIf="loading"></app-loadingbar>
     </nav>
 
     <mat-sidenav-container class="mat-drawer-container">
@@ -9,7 +11,7 @@
             opened
             mode="side"
         >
-            <app-side-nav-content></app-side-nav-content>
+            <app-side-nav-content (sideNavUpdate)="setViewName($event)"></app-side-nav-content>
 
         </mat-sidenav>
 

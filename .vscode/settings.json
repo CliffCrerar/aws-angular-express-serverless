@@ -14,10 +14,13 @@
 	"cSpell.words": [
 		"addressid",
 		"estateid",
+		"estatename",
 		"hdrs",
 		"ownerid",
+		"panelstate",
 		"propertyform",
 		"propertyid",
+		"propertytype",
 		"propertytypeid",
 		"residentid"
 	]

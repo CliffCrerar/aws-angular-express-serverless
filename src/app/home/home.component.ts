@@ -9,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 	public appNavTitle: string;
+	public appSectionTitle: string;
 	public loading = true;
 	constructor(private loadingService: LoadingBarService) {
+		this.appSectionTitle = 'Properties';
 		this.appNavTitle = 'GloVent Application Demo';
 		this.loadingService.loadingBarState.subscribe((newLoadingSate: boolean) => {
 			this.loading = newLoadingSate;
@@ -21,4 +23,8 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	setViewName({ sectionTitle }: { sectionTitle: string }) {
+		console.log('sectionTitle: ', sectionTitle);
+		this.appSectionTitle = sectionTitle;
+	}
 }

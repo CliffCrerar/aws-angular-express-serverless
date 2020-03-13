@@ -1,59 +1,67 @@
+/**
+ * Side nav component
+ */
+
 import { Subscription } from 'rxjs';
-
-
 import { DataService } from 'src/app/_service/data.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef, Output,EventEmitter } from '@angular/core';
 import { CrossComponentMessagingService } from 'src/app/_service/cross-comp-messaging.service.service';
-
+import { SideNavStaticView, SideNavOption } from 'src/app/_models/side-nav-ui-data.model';
+import { ViewChild } from '@angular/core';
+import { MatListOption, MatSelectionListChange } from '@angular/material/list';
 
 @Component({
 	selector: 'app-side-nav-content',
 	templateUrl: './side-nav-content.component.html',
 	styleUrls: ['./side-nav-content.component.scss']
 })
-export class SideNavContentComponent implements OnInit, OnDestroy {
+export class SideNavContentComponent implements OnInit, AfterViewInit, OnDestroy {
+	/* Attributes */
 
-	public editShowHide = false;
-	public editSelectedOption = '';
+	@ViewChild('editOption') editOption: MatListOption;
+	@Output() sideNavUpdate: EventEmitter<{sectionTitle: string}>;
 
-	public tableList: string[];
-	public tableNames: string[] = ['Properties', 'Contacts', 'Address list', 'Estates', 'Property Types'];
-	public icons: string[] = ['stars', 'assignment_ind', 'contact_mail', 'account_balance', 'store'];
+	private _tableNameList: string[];
+	public uiData: SideNavOption[];
 	private _crossCommsSubscription: Subscription;
+	public editActive: boolean;
 
+	/** CONSTRUCTOR */
 	constructor(private dataService: DataService, private crossComms: CrossComponentMessagingService) {
-		this.tableList = this.dataService.tableList.slice(0, this.tableNames.length);
+		this.sideNavUpdate = new EventEmitter<{sectionTitle: string}>();
+		this.uiData = SideNavStaticView.sideNavListArray;
+		this.editActive = false;
 	}
-
+	/* HOOKS */
 	ngOnInit(): void {
-		function 	activateEdit() {
-			this.editShowHide = true;
-			this.editSelectedOption = 'mat-list-single-selected-option';
-		}
-
+		console.log(this.editOption);
 
 		this.crossComms.activateEditSubject.subscribe((switchEdit: boolean) => {
-			switchEdit ? activateEdit() : this.deactivateEdit();
-		})
-
-
+			console.log('Turn Edit On');
+			switchEdit
+				? this.activateEdit()
+				: this.deactivateEdit();
+		});
 	}
-
-	ngOnDestroy() {
+	ngOnDestroy = () => {
 		this._crossCommsSubscription.unsubscribe();
 	}
-
-	onUserSelection(event) {
-		console.log('event: ', event);
-
+	ngAfterViewInit() {
+		console.log('editOption: ', this.editOption);
 	}
 
+	/* METHODS */
+	onUserSelection(event: MatSelectionListChange) {
+		this.sideNavUpdate.emit({sectionTitle: event.option.value});
+	}
 
+	activateEdit() {
+		this.editActive = true;
+		this.editOption.selected = true;
+	}
 
 	deactivateEdit() {
-
+		this.editActive = false;
 	}
-
-
 
 }

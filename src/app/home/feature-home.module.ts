@@ -15,6 +15,8 @@ import { AddEditPropertiesComponent } from './add-edit-properties/add-edit-prope
 import { ContactsViewComponent } from './contacts-view/contacts-view.component';
 import { PropertyTypesComponent } from './property-types/property-types.component';
 import { AddressListComponent } from './address-list/address-list.component';
+import { MainNavbarComponent } from './main-navbar/main-navbar.component';
+
 
 
 @NgModule({
@@ -30,9 +32,11 @@ import { AddressListComponent } from './address-list/address-list.component';
 		ContactsViewComponent,
 		PropertyTypesComponent,
 		AddressListComponent,
+		MainNavbarComponent
 	],
 	imports: [
-		BrowserAnimationsModule,
+
+	BrowserAnimationsModule,
 		BrowserModule,
 		CommonModule,
 		MaterialAppModule,

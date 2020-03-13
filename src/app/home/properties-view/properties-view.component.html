@@ -1,5 +1,5 @@
 <div>
-    <!-- <div *ngFor="let thisRow of propertiesList">{{ thisRow| consolelog }}</div> -->
+    <!-- <div *ngFor="let thisRow of propertiesList">{{ thisRow| console log }}</div> -->
 </div>
 
 <mat-card class="border-radius-0 mb-1">
@@ -26,12 +26,11 @@
 
     <mat-accordion>
 
-        <ng-container *ngFor="let row of propertiesList">
+        <ng-container *ngFor="let row of propertiesList; let propIdx = index">
             <mat-expansion-panel
                 [id]="row.propertyid"
-                (opened)="panelOpenState = true"
-                (closed)="panelOpenState = false"
-                (click)="onExpanderClick(row.propertyid)"
+                (opened)="row.panelstate = true"
+                (closed)="row.panelstate = false"
             >
                 <mat-expansion-panel-header>
                     <mat-panel-description>
@@ -47,70 +46,91 @@
 
                 </mat-expansion-panel-header>
 
-                <div class="position-relative d-block">
-                    <mat-divider></mat-divider>
-                </div>
+                <ng-container *ngIf="row.panelstate">
 
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-                        <mat-list>
-                            <h3 mat-subheader>
-                                <mat-icon mat-list-icon>note</mat-icon>
-                                Property
-                            </h3>
-
-                            <mat-list-item
-                                class="d-flex"
-                                *ngFor="let field of currentProperty.estate"
-                            >
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-
-                            <mat-list-item *ngFor="let field of currentProperty.propertyType">
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-
-                            <mat-list-item *ngFor="let field of currentProperty.address">
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-
-                        </mat-list>
+                    <div class="position-relative d-block">
+                        <mat-divider></mat-divider>
                     </div>
 
-                    <div>
-                        <mat-list>
-                            <h3 mat-subheader>Address</h3>
-                            <mat-list-item *ngFor="let field of currentProperty.address">
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-                        </mat-list>
+                    <mat-card-actions class="properties-actions">
+                        <button
+                            [routerLink]="['/home','add-edit-properties','property#'+row.propertyid]"
+                            mat-raised-button
+                            color="accent"
+                        >
+                            <mat-icon>edit</mat-icon>
+                            EDIT
+                        </button>
+                    </mat-card-actions>
+
+                    <div class="position-relative d-block">
+                        <mat-divider></mat-divider>
                     </div>
 
-                    <div>
-                        <mat-list>
-                            <h3 mat-subheader>Owner</h3>
-                            <mat-list-item *ngFor="let field of currentProperty.owner">
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
 
-                    <div>
-                        <mat-list>
-                            <h3 mat-subheader>Resident</h3>
-                            <mat-list-item *ngFor="let field of currentProperty.resident">
-                                <p mat-line>{{field.title}}: {{field.value}}</p>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
+                        <div>
+                            <mat-list>
+                                <h3 mat-subheader>
+                                    <mat-icon mat-list-icon>note</mat-icon>
+                                    Property
+                                </h3>
 
-				</div>
-				<mat-card-actions class="text-right">
-					<button [routerLink]="['/home','edit-properties','property#'+row.propertyid]" mat-raised-button color="accent"><mat-icon>edit</mat-icon>EDIT</button>
-				</mat-card-actions>
+                                <mat-list-item
+
+                                    *ngFor="let field of row.estate"
+                                >
+                                    <div>
+                                        <div>{{field.title}}:</div>
+                                        <div>{{field.value}}</div>
+                                    </div>
+
+                                </mat-list-item>
+
+                                <mat-list-item *ngFor="let field of row.propertyType">
+                                    <p mat-line>{{field.title}}: {{field.value}}</p>
+                                </mat-list-item>
+
+                                <mat-list-item *ngFor="let field of row.address">
+                                    <p mat-line>{{field.title}}: {{field.value}}</p>
+                                </mat-list-item>
+
+                            </mat-list>
+                        </div>
+
+                        <div>
+                            <mat-list>
+                                <h3 mat-subheader>Address</h3>
+                                <mat-list-item *ngFor="let field of row.address">
+                                    <p mat-line>{{field.title}}: {{field.value}}</p>
+                                </mat-list-item>
+                            </mat-list>
+                        </div>
+
+                        <div>
+                            <mat-list>
+                                <h3 mat-subheader>Owner</h3>
+                                <mat-list-item *ngFor="let field of row.propertyOwner">
+                                    <p mat-line>{{field.title}}: {{field.value}}</p>
+                                </mat-list-item>
+                            </mat-list>
+                        </div>
+
+                        <div>
+                            <mat-list>
+                                <h3 mat-subheader>Resident</h3>
+                                <mat-list-item *ngFor="let field of row.propertyResident">
+                                    <p mat-line>{{field.title}}: {{field.value}}</p>
+                                </mat-list-item>
+                            </mat-list>
+                        </div>
+
+					</div>
+
+                </ng-container>
 
             </mat-expansion-panel>
+
         </ng-container>
 
     </mat-accordion>

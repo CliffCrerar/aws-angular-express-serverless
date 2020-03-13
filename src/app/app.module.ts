@@ -1,4 +1,4 @@
-import { HandleUndefinedPipe } from './_pipes/handle-undefined.pipe';
+
 import { DataService } from 'src/app/_service/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './material-app.module';
@@ -10,14 +10,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './about/about.component';
+
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		LandingComponent
+		LandingComponent,
+		AboutComponent
 	],
 	imports: [
-		BrowserAnimationsModule,
+
+	BrowserAnimationsModule,
 		BrowserModule,
 		MaterialAppModule,
 		AppRoutingModule,
