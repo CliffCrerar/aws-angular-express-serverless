@@ -1,31 +1,3 @@
 {
-	"html.format.wrapAttributes": "force-expand-multiline",
-	"html.format.indentInnerHtml": true,
-	"[javascript]": {
-
-	},
-	"editor.insertSpaces": false,
-	"editor.tabSize": 4,
-	"editor.wordWrap": "on",
-	"tslint.configFile": "./tslint.json",
-	"tslint.ignoreDefinitionFiles": false,
-	"tslint.jsEnable": false,
-	"tslint.suppressWhileTypeErrorsPresent": true,
-	"cSpell.words": [
-		"addressid",
-		"estateid",
-		"estatename",
-		"hdrs",
-		"ownerid",
-		"panelstate",
-		"propertyform",
-		"propertyid",
-		"propertytype",
-		"propertytypeid",
-		"residentid"
-	]
+    "git.ignoreLimitWarning": true
 }
-
-
-
-

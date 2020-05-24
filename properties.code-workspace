@@ -1,16 +1,21 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": ".",
+			"name":"_root"
 		},
 		{
-			"path": "/Users/cliff/git/fu-loadshedding"
+			"path": "./_angular-app",
+			"name": "ANGULAR APPLICATION"
+		},
+		{
+			"path": "./_aws-sam-api",
+			"name": "AWS SERVERLESS APP"
 		}
 	],
 	"settings": {
-		"tslint.configFile": "./tslint.json",
 		"tslint.ignoreDefinitionFiles": false,
-		"tslint.jsEnable": false,
+		"tslint.jsEnable": true,
 		"tslint.suppressWhileTypeErrorsPresent": true
 	}
 }
